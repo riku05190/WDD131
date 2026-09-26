@@ -9,6 +9,7 @@ body {
     font-size: 18px;
     color: #000;
     background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #content {
@@ -16,6 +17,20 @@ body {
     margin: 40px auto;
     border: 1px solid #ccc;
     padding: 60px 70px;
+    transition: border-color 0.3s ease;
+}
+
+select {
+    display: block;
+    margin-bottom: 24px;
+    padding: 6px 12px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
 }
 
 header {
@@ -35,12 +50,14 @@ h2 {
     font-weight: 600;
     letter-spacing: 3px;
     margin: 0 0 16px 0;
+    transition: color 0.3s ease;
 }
 
 hr {
     border: 0;
     border-top: 1px solid #dcdcdc;
     margin: 0 0 35px 0;
+    transition: border-top-color 0.3s ease;
 }
 
 main {
@@ -69,4 +86,28 @@ footer {
 footer img {
     width: 140px;
     height: auto;
+}
+
+/* Dark Mode Styles */
+body.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark #content {
+    border-color: #555;
+}
+
+body.dark h2 {
+    color: #85c2ff;
+}
+
+body.dark hr {
+    border-top-color: #555;
+}
+
+body.dark select {
+    background-color: #444;
+    color: #fff;
+    border-color: #666;
 }
