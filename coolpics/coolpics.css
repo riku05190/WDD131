@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Base / Mobile First Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #d8d8d8;
+    color: #333333;
+}
+
+header {
+    background-color: #2875d7;
+    color: white;
+    text-align: center;
+    padding: 1.2rem 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.menu-btn {
+    display: block;
+    margin: 0.6rem auto 0;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 4px 12px;
+}
+
+.menu-btn:hover {
+    opacity: 0.85;
+}
+
+/* Mobile & Tablet: Hide navigation links for this prove */
+nav {
+    display: none;
+}
+
+main {
+    padding: 1.5rem 1rem 3rem;
+}
+
+main h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0.5rem 0 1.5rem;
+    color: #111111;
+}
+
+/* Gallery Grid */
+.gallery {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+figure {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+figure img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border: 5px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+footer {
+    background-color: #2875d7;
+    color: white;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Tablet Layout (2 Columns) */
+@media screen and (min-width: 700px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Desktop Layout (3 Columns & Expanded Navigation) */
+@media screen and (min-width: 1000px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    /* Hide the menu button and display full navigation on large screens */
+    .menu-btn {
+        display: none;
+    }
+
+    nav {
+        display: block;
+        margin-top: 0.5rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 14px;
+        font-size: 1rem;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+}
