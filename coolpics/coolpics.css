@@ -42,9 +42,26 @@ header h1 {
     opacity: 0.85;
 }
 
-/* Mobile & Tablet: Hide navigation links for this prove */
+/* Mobile & Tablet Navigation: Hidden by default when .hide is present */
 nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+}
+
+.hide {
     display: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 main {
@@ -82,6 +99,12 @@ figure img {
     display: block;
     border: 5px solid white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+figure img:hover {
+    transform: scale(1.03);
 }
 
 footer {
@@ -114,19 +137,86 @@ footer p {
         display: none;
     }
 
-    nav {
+    nav,
+    nav.hide {
         display: block;
         margin-top: 0.5rem;
     }
 
     nav a {
+        display: inline;
         color: white;
         text-decoration: none;
         margin: 0 14px;
         font-size: 1rem;
+        padding: 0;
     }
 
     nav a:hover {
         text-decoration: underline;
+    }
+}
+
+/* Modal (Dialog) Styles */
+dialog {
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    border: none;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-sizing: border-box;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+dialog img {
+    width: 90%;
+    max-width: 700px;
+    max-height: 75vh;
+    object-fit: contain;
+    display: block;
+    margin: 15vh auto 0;
+    border: 5px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.close-viewer {
+    position: absolute;
+    top: 5vh;
+    right: 5vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 2px solid white;
+    padding: 4px 12px;
+    font-size: 1.5rem;
+    font-family: inherit;
+    cursor: pointer;
+    line-height: 1;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.close-viewer:hover {
+    background-color: white;
+    color: black;
+}
+
+@media screen and (min-width: 1000px) {
+    dialog img {
+        width: 60%;
+        max-width: 800px;
+        margin: 12vh auto 0;
+    }
+
+    .close-viewer {
+        top: 8vh;
+        right: 15vw;
     }
 }
