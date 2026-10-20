@@ -25,6 +25,9 @@ This repository contains learning projects, exercises, and reference notes for *
    - [Scope (Global vs. Block)](#scope-global-vs-block)
    - [Functions & Conditionals](#functions--conditionals)
    - [String Method: `.replace()`](#string-method-replace)
+   - [Template Literals](#template-literals)
+   - [JavaScript Objects](#javascript-objects)
+   - [Array Methods (`.forEach`, `.map`, `.filter`, `.reduce`, `.indexOf`)](#array-methods)
 5. [DOM Manipulation & Events](#5-dom-manipulation--events)
    - [Selecting Elements (`querySelector`, `getElementById`)](#selecting-elements)
    - [Attributes & Text Content (`setAttribute`, `textContent`, `value`)](#attributes--text-content)
@@ -253,6 +256,100 @@ const paragraph = "I think Max's code is more efficient than yours.";
 const updated = paragraph.replace("Max's", "my");
 console.log(updated);
 // Output: "I think my code is more efficient than yours."
+```
+
+### Template Literals
+A template literal is a special type of string in JS that allows multiple lines, calculations, calls to functions, and string interpolation.
+- **Backticks (`` ` ``)**: The template literal uses backticks (`` ` ``) to enclose the string.
+- **String Interpolation (`${...}`)**: String interpolation uses `${...}` to insert variables or expressions directly into the string.
+
+```javascript
+const movieSummary = `
+  <div class="movie-summary">
+    <h2>${movie.title}</h2>
+    <p>${movie.genre} - ${stars}</p>
+  </div>
+`;
+
+document.getElementById("movie-list").innerHTML += movieSummary;
+```
+
+### JavaScript Objects
+Objects are variables, but objects contain many values stored as name/value (or key/value) pairs of data.
+- Like the object of a car would have a name with the value of Fiat, a model with a number 500, and a color with the value of white.
+
+```javascript
+const car = { type: "Fiat", model: "500", color: "white" };
+
+// Access properties using dot notation or bracket notation:
+console.log(car.type);   // "Fiat"
+console.log(car["model"]); // "500"
+```
+
+### Array Methods
+
+Methods to iterate, transform, filter, aggregate, or search arrays.
+
+#### 1. `.forEach()`
+The `.forEach()` method calls a function for each element in an array.
+
+```javascript
+const numbers = [65, 44, 12, 4];
+numbers.forEach(myFunction);
+
+function myFunction(item) {
+  console.log(item * 10);
+}
+// Console output: 650, 440, 120, 40
+```
+
+#### 2. `.map()`
+The `.map()` method creates a new array from calling a function for every array element.
+
+```javascript
+const numbers = [65, 44, 12, 4];
+const newArr = numbers.map(myFunction);
+
+function myFunction(num) {
+  return num * 10;
+}
+// newArr: [650, 440, 120, 40]
+```
+
+#### 3. `.filter()`
+The `.filter()` method creates a new array filled with elements that pass a test provided by a function.
+
+```javascript
+const ages = [32, 33, 16, 40];
+const result = ages.filter(checkAdult);
+
+function checkAdult(age) {
+  return age >= 18;
+}
+// result: [32, 33, 40]
+```
+
+#### 4. `.reduce()`
+The `.reduce()` method executes a reducer function on each array element to reduce the array to a single value.
+
+```javascript
+const numbers = [125, 20, 5];
+
+document.getElementById("output").innerHTML = numbers.reduce(myFunc);
+
+function myFunc(total, num) {
+  return total - num;
+}
+// Output: 100 (125 - 20 - 5)
+```
+
+#### 5. `.indexOf()`
+The `.indexOf()` method returns the first index position of a specified value, or `-1` if not found.
+
+```javascript
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let index = fruits.indexOf("Apple");
+// index: 2
 ```
 
 ---
