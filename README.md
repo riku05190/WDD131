@@ -8,6 +8,7 @@ This repository contains learning projects, exercises, and reference notes for *
 
 1. [HTML Metadata & Semantic Elements](#1-html-metadata--semantic-elements)
    - [Meta Tags](#meta-tags)
+   - [Favicon](#favicon)
    - [Dialog Element (`<dialog>`)](#dialog-element-dialog)
 2. [CSS Selectors, Combinators & Styling](#2-css-selectors-combinators--styling)
    - [CSS Selectors](#css-selectors)
@@ -24,15 +25,18 @@ This repository contains learning projects, exercises, and reference notes for *
    - [Constants (`const`)](#constants-const)
    - [Scope (Global vs. Block)](#scope-global-vs-block)
    - [Functions & Conditionals](#functions--conditionals)
+   - [Compound Conditionals & Comparison Operators](#compound-conditionals--comparison-operators)
    - [String Method: `.replace()`](#string-method-replace)
+   - [String Method: `.trim()`](#string-method-trim)
    - [Template Literals](#template-literals)
    - [JavaScript Objects](#javascript-objects)
-   - [Array Methods (`.forEach`, `.map`, `.filter`, `.reduce`, `.indexOf`)](#array-methods)
+   - [Array Methods (`.forEach`, `.map`, `.filter`, `.reduce`, `.indexOf`, `Array.from`)](#array-methods)
 5. [DOM Manipulation & Events](#5-dom-manipulation--events)
    - [Selecting Elements (`querySelector`, `getElementById`)](#selecting-elements)
    - [Attributes & Text Content (`setAttribute`, `textContent`, `value`)](#attributes--text-content)
    - [Inline Styles & Class Management (`style`, `className`, `classList`)](#inline-styles--class-management)
-   - [Event Listeners & Event Parameter (`addEventListener`, `e`)](#event-listeners--event-parameter)
+   - [Event Listeners, `.preventDefault()`, & Event Parameter](#event-listeners-preventdefault--event-parameter)
+   - [Form Reset (`.reset()`)](#form-reset-reset)
 6. [ARIA (Accessible Rich Internet Applications)](#6-aria-accessible-rich-internet-applications)
 7. [Instructor Feedback & Course Best Practices](#7-instructor-feedback--course-best-practices)
    - [Code Formatting & Readability Standards](#code-formatting--readability-standards)
@@ -58,6 +62,15 @@ The `<meta>` tag defines metadata (information about the HTML document).
   <meta name="author" content="Jane Doe">
   <title>Document Title</title>
 </head>
+```
+
+### Favicon
+A favicon is a small image displayed next to the page title in the browser tab.
+- **Dimensions**: The image will be quite small and square. Size can range from 16x16 pixels to 64x64 pixels.
+- **Naming**: A common name for the favicon image is `'favicon.ico'`.
+
+```html
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 ```
 
 ### Dialog Element (`<dialog>`)
@@ -247,6 +260,32 @@ function toggleTheme(mode) {
 }
 ```
 
+### Compound Conditionals & Comparison Operators
+If you need to check for multiple conditions, use logical operators combined with comparison operators.
+
+#### Logical Operators
+- `&&` : **AND** (true if both conditions evaluate to true)
+- `||` : **OR** (true if at least one condition evaluates to true)
+- `!` : **NOT** (inverts the truthiness of the condition)
+
+#### Comparison Operators
+- `===` : Strictly equal (checks both value and type)
+- `==` : Equal (type-coercing equality)
+- `!==` : Not equal (strictly not equal)
+- `>` : Greater than
+- `<` : Less than
+- `>=` : Greater than or equal to
+- `<=` : Less than or equal to
+
+```javascript
+// Example: Checking compound conditions
+// Checks if type strictly equals 'many' AND fewer than 2 campuses were selected
+if (type === "many" && selectedCampuses.length < 2) {
+  output.textContent = "Please select at least two campuses.";
+  return;
+}
+```
+
 ### String Method: `.replace()`
 Searches a string for a specified substring/pattern and returns a **new string** with the replacement. It does not mutate the original string.
 
@@ -256,6 +295,15 @@ const paragraph = "I think Max's code is more efficient than yours.";
 const updated = paragraph.replace("Max's", "my");
 console.log(updated);
 // Output: "I think my code is more efficient than yours."
+```
+
+### String Method: `.trim()`
+The `.trim()` method is a string method in JavaScript that removes whitespace from both ends of a string.
+- **Use Case**: A user might inadvertently add spaces before and after an input entry. We want to eliminate these extra spaces before validation or storage.
+- **Example**: Getting the input value the user entered and trimming any whitespace before and after the entry:
+
+```javascript
+const cardNum = cardNumber.value.trim();
 ```
 
 ### Template Literals
@@ -352,6 +400,19 @@ let index = fruits.indexOf("Apple");
 // index: 2
 ```
 
+#### 6. `Array.from()`
+Converts an array-like object or collection (such as a `NodeList` returned by `querySelectorAll`) into a real JavaScript array.
+- Once converted, you can chain array methods like `.filter()`, `.map()`, and `.reduce()`.
+
+```javascript
+// Example: Converting checkbox NodeList to an array, filtering checked ones, and extracting values
+const campusBoxes = document.querySelectorAll('input[name="campus"]');
+
+const selectedValues = Array.from(campusBoxes)
+  .filter(box => box.checked)
+  .map(box => box.value);
+```
+
 ---
 
 ## 5. DOM Manipulation & Events
@@ -413,6 +474,27 @@ function openModal(e) {
   console.log("Event type:", e.type);
   console.log("Triggered element:", e.target);
 }
+```
+
+#### Preventing Default Behavior (`.preventDefault()`)
+The `.preventDefault()` method is used to stop the default browser behavior of an event from happening (e.g., preventing form submission from reloading the page or an `<a>` tag from navigating).
+
+```javascript
+const form = document.querySelector("#myForm");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Stops the default form submission / page reload
+  // Custom JavaScript form handling...
+});
+```
+
+### Form Reset (`.reset()`)
+The `.reset()` method restores a `<form>` to the exact state it was in when the page loaded.
+- Resets all form controls (text inputs, textareas, checkboxes, radio buttons, select menus, etc.).
+
+```javascript
+const form = document.querySelector("#myForm");
+form.reset();
 ```
 
 ---
