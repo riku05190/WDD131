@@ -37,6 +37,7 @@ This repository contains learning projects, exercises, and reference notes for *
    - [Inline Styles & Class Management (`style`, `className`, `classList`)](#inline-styles--class-management)
    - [Event Listeners, `.preventDefault()`, & Event Parameter](#event-listeners-preventdefault--event-parameter)
    - [Form Reset (`.reset()`)](#form-reset-reset)
+   - [Form Validation & Dynamic Fields](#form-validation--dynamic-fields)
 6. [ARIA (Accessible Rich Internet Applications)](#6-aria-accessible-rich-internet-applications)
 7. [Instructor Feedback & Course Best Practices](#7-instructor-feedback--course-best-practices)
    - [Code Formatting & Readability Standards](#code-formatting--readability-standards)
@@ -495,6 +496,26 @@ The `.reset()` method restores a `<form>` to the exact state it was in when the 
 ```javascript
 const form = document.querySelector("#myForm");
 form.reset();
+```
+
+### Form Validation & Dynamic Fields
+In modern forms, conditional inputs can be toggled dynamically based on user selection, and submissions must be validated prior to processing:
+- **Dynamic Field Toggling**: Use the `hidden` attribute or class toggling to reveal conditional input fields (such as student ID or access codes).
+- **Date Comparison**: Check that a selected date occurs strictly in the future by comparing date objects.
+- **Pattern Matching (Regex)**: Use regular expressions (e.g. `/^\d{9}$/`) to test numerical patterns like 9-digit student IDs.
+- **Accessible Error Announcement**: Place error containers below the form with `aria-live="polite"` so screen readers immediately inform the user of validation issues.
+
+```javascript
+// Example: Checking 9-digit pattern and future date
+const isNineDigits = /^\d{9}$/.test(studentId.trim());
+
+function isFutureDate(dateString) {
+  const [year, month, day] = dateString.split("-").map(Number);
+  const chosenDate = new Date(year, month - 1, day);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return chosenDate > today;
+}
 ```
 
 ---
