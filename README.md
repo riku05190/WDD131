@@ -30,7 +30,8 @@ This repository contains learning projects, exercises, and reference notes for *
    - [String Method: `.trim()`](#string-method-trim)
    - [Template Literals](#template-literals)
    - [JavaScript Objects](#javascript-objects)
-   - [Array Methods (`.forEach`, `.map`, `.filter`, `.reduce`, `.indexOf`, `Array.from`)](#array-methods)
+   - [The `this` Keyword](#the-this-keyword)
+   - [Array Methods (`.forEach`, `.map`, `.filter`, `.reduce`, `.indexOf`, `.findIndex`, `Array.from`)](#array-methods)
 5. [DOM Manipulation & Events](#5-dom-manipulation--events)
    - [Selecting Elements (`querySelector`, `getElementById`)](#selecting-elements)
    - [Attributes & Text Content (`setAttribute`, `textContent`, `value`)](#attributes--text-content)
@@ -324,16 +325,43 @@ document.getElementById("movie-list").innerHTML += movieSummary;
 ```
 
 ### JavaScript Objects
-Objects are variables, but objects contain many values stored as name/value (or key/value) pairs of data.
-- Like the object of a car would have a name with the value of Fiat, a model with a number 500, and a color with the value of white.
+An object in JS is a way to store and organize related data and behavior (methods) in key-value pairs.
+- This is similar to a Dictionary in Python.
+- The **key** is on the left side of the colon and the **value** is on the right.
+- Keys that store data are called **properties**, and keys that store functions are called **methods**.
+- Objects are variables that can contain many values stored as name/value (or key/value) pairs of data (for example, a `car` object with a `type`, `model`, and `color`).
 
 ```javascript
 const car = { type: "Fiat", model: "500", color: "white" };
 
 // Access properties using dot notation or bracket notation:
-console.log(car.type);   // "Fiat"
+console.log(car.type);    // "Fiat"
 console.log(car["model"]); // "500"
 ```
+
+```javascript
+const dog = {
+  name: "Buddy",
+  breed: "Labrador",
+  age: 4,
+  bark: function() {
+    console.log("Woof!");
+  }
+};
+
+dog.bark(); // Output: Woof!
+```
+
+In the `dog` object there are three **properties** (`name`, `breed`, and `age`) and one **method** (`bark`).
+
+### The `this` Keyword
+`this` is a keyword in JavaScript. When you create an object, it creates a reference to itself.
+
+```javascript
+this.sections;
+```
+
+In English it would sound like this: *"Look inside of the current object for a property called `sections`."*
 
 ### Array Methods
 
@@ -401,7 +429,20 @@ let index = fruits.indexOf("Apple");
 // index: 2
 ```
 
-#### 6. `Array.from()`
+#### 6. `.findIndex()`
+The `.findIndex()` method executes a function for each array element and returns the index position of the first element that passes a test. `-1` is returned if there is no match.
+
+```javascript
+const numbers = [10, 20, 30, 40, 50];
+
+const index = numbers.findIndex(function(num) {
+  return num > 25;
+});
+
+console.log(index); // Output: 2
+```
+
+#### 7. `Array.from()`
 Converts an array-like object or collection (such as a `NodeList` returned by `querySelectorAll`) into a real JavaScript array.
 - Once converted, you can chain array methods like `.filter()`, `.map()`, and `.reduce()`.
 
