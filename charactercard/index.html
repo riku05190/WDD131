@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="description"
+    content="Interactive Character Card built with JavaScript Objects for WDD 131."
+  >
+  <meta name="author" content="Riku Nakamura">
+  <title>Character Card | Snortleblat</title>
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:type" content="website">
+  <meta
+    property="og:title"
+    content="Character Card - Snortleblat"
+  >
+  <meta
+    property="og:description"
+    content="Interactive Character Card featuring Snortleblat, the Swamp Beast Diplomat."
+  >
+  <meta
+    property="og:url"
+    content="https://riku05190.github.io/WDD131/charactercard/"
+  >
+  <meta
+    property="og:image"
+    content="https://riku05190.github.io/WDD131/charactercard/images/charactor.webp"
+  >
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta
+    name="twitter:title"
+    content="Character Card - Snortleblat"
+  >
+  <meta
+    name="twitter:description"
+    content="Interactive Character Card featuring Snortleblat, the Swamp Beast Diplomat."
+  >
+  <meta
+    name="twitter:image"
+    content="https://riku05190.github.io/WDD131/charactercard/images/charactor.webp"
+  >
+
+  <!-- One favicon (ICO works everywhere) -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- One Apple Touch Icon (iOS home screen) -->
+  <link
+    rel="apple-touch-icon"
+    href="images/apple-touch-icon.png"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <article class="card" aria-labelledby="characterName">
+      <img
+        id="characterImage"
+        class="image"
+        src="images/charactor.webp"
+        alt="Snortleblat, the Swamp Beast Diplomat"
+        width="400"
+        height="400"
+      >
+      <h1 id="characterName" class="name">Snortleblat</h1>
+
+      <div class="stats" aria-live="polite">
+        <p>
+          <strong>Class:</strong>
+          <span id="characterClass">Swamp Beast Diplomat</span>
+        </p>
+        <p>
+          <strong>Level:</strong>
+          <span id="characterLevel">5</span>
+        </p>
+        <p>
+          <strong>Health:</strong>
+          <span id="characterHealth">100</span>
+        </p>
+        <p
+          id="statusMessage"
+          class="status-message"
+          role="status"
+          hidden
+        ></p>
+      </div>
+
+      <div class="buttons">
+        <button type="button" id="attackedBtn">
+          Attacked
+        </button>
+        <button type="button" id="levelUpBtn">
+          Level Up
+        </button>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
+
