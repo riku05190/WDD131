@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="description"
+    content="RecipeBook - Discover delicious homemade recipes including classic Apple Crisp."
+  >
+  <meta name="author" content="Riku Nakamura">
+  <title>RecipeBook</title>
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RecipeBook">
+  <meta
+    property="og:description"
+    content="Discover delicious homemade recipes including classic Apple Crisp."
+  >
+  <meta
+    property="og:url"
+    content="https://riku05190.github.io/WDD131/recipes/"
+  >
+  <meta
+    property="og:image"
+    content="social-preview-image.png"
+  >
+
+  <!-- X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RecipeBook">
+  <meta
+    name="twitter:description"
+    content="Discover delicious homemade recipes including classic Apple Crisp."
+  >
+  <meta
+    name="twitter:image"
+    content="social-preview-image.png"
+  >
+
+  <!-- One favicon (ICO works everywhere) -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- One Apple Touch Icon (iOS home screen) -->
+  <link
+    rel="apple-touch-icon"
+    href="images/apple-touch-icon.png"
+  >
+
+  <!-- Google Fonts: Amatic SC -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="recipes.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-title">
+      <img
+        src="images/recipe-book.png"
+        alt="RecipeBook logo"
+        class="logo"
+      >
+      <h1>RecipeBook</h1>
+    </div>
+
+    <form class="search-form" action="#" method="get" role="search">
+      <label for="search-input" class="sr-only">
+        Find a recipe
+      </label>
+      <input
+        type="search"
+        id="search-input"
+        name="q"
+        placeholder="Find a recipe"
+      >
+      <button type="submit" aria-label="Search recipes">
+        <img src="images/search.svg" alt="">
+      </button>
+    </form>
+  </header>
+
+  <hr class="divider">
+
+  <main>
+    <article class="recipe-card">
+      <div class="recipe-image">
+        <img
+          src="images/apple-crisp.jpg"
+          alt="Warm apple crisp served in a bowl with vanilla ice cream"
+        >
+      </div>
+      <div class="recipe-content">
+        <ul class="recipe-tags" aria-label="Recipe categories">
+          <li>dessert</li>
+        </ul>
+        <h2 class="recipe-title">
+          <a href="#">Apple Crisp</a>
+        </h2>
+        <span
+          class="rating"
+          role="img"
+          aria-label="Rating: 4 out of 5 stars"
+        >
+          <span aria-hidden="true" class="icon-star">⭐</span>
+          <span aria-hidden="true" class="icon-star">⭐</span>
+          <span aria-hidden="true" class="icon-star">⭐</span>
+          <span aria-hidden="true" class="icon-star">⭐</span>
+          <span aria-hidden="true" class="icon-star-empty">☆</span>
+        </span>
+        <p class="recipe-description">
+          This apple crisp recipe is a simple yet delicious fall dessert
+          that's great served warm with vanilla ice cream.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="social">
+      <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates -->
+      <a href="#">
+        <img src="images/instagram_icon.svg" alt="instagram icon">
+      </a>
+      <a href="#">
+        <img src="images/youtube_icon.svg" alt="youtube icon">
+      </a>
+      <a href="#">
+        <img src="images/pinterest_icon.svg" alt="pinterest icon">
+      </a>
+    </div>
+    <a
+      href="https://www.flaticon.com/free-icons/recipe"
+      title="recipe icons"
+      class="attribution"
+    >Recipe icons created by Freepik - Flaticon</a>
+  </footer>
+</body>
+</html>
+
