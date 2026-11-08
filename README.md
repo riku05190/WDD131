@@ -20,6 +20,7 @@ This repository contains learning projects, exercises, and reference notes for *
    - [Mobile-First Design](#mobile-first-design)
    - [Media Queries](#media-queries)
    - [Responsive Navigation & CSS Grid](#responsive-navigation--css-grid)
+   - [Flexbox](#flexbox)
 4. [JavaScript Fundamentals](#4-javascript-fundamentals)
    - [Variables (`let`)](#variables-let)
    - [Constants (`const`)](#constants-const)
@@ -200,6 +201,27 @@ body {
     gap: 1rem;
   }
   ```
+
+### Flexbox
+Flexbox is a layout method for arranging items in rows or columns.
+- **1D vs. 2D Layout**: It is different from Grid in that Flexbox is **one-dimensional**, whereas Grid is **two-dimensional**. With Grid you have control over both rows and columns, while Flexbox works along a single axis.
+- **Flow vs. Structure**: Grid focuses on overall page structure and items can be placed anywhere in the grid, whereas Flexbox focuses on flow and positioning where items flow naturally in order.
+
+```css
+.main-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+```
+
+```css
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+```
 
 ---
 
