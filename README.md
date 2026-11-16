@@ -27,12 +27,15 @@ This repository contains learning projects, exercises, and reference notes for *
    - [Scope (Global vs. Block)](#scope-global-vs-block)
    - [Functions & Conditionals](#functions--conditionals)
    - [Compound Conditionals & Comparison Operators](#compound-conditionals--comparison-operators)
+   - [Looping with a `for` Loop](#looping-with-a-for-loop)
+   - [Random Numbers (`Math.random()`)](#random-numbers-mathrandom)
    - [String Method: `.replace()`](#string-method-replace)
    - [String Method: `.trim()`](#string-method-trim)
+   - [String Method: `.includes()`](#string-method-includes)
    - [Template Literals](#template-literals)
    - [JavaScript Objects](#javascript-objects)
    - [The `this` Keyword](#the-this-keyword)
-   - [Array Methods (`.forEach`, `.map`, `.filter`, `.reduce`, `.indexOf`, `.findIndex`, `Array.from`)](#array-methods)
+   - [Array Methods (`.forEach`, `.map`, `.filter`, `.reduce`, `.indexOf`, `.findIndex`, `.find`, `.sort`, `Array.from`)](#array-methods)
 5. [DOM Manipulation & Events](#5-dom-manipulation--events)
    - [Selecting Elements (`querySelector`, `getElementById`)](#selecting-elements)
    - [Attributes & Text Content (`setAttribute`, `textContent`, `value`)](#attributes--text-content)
@@ -310,6 +313,27 @@ if (type === "many" && selectedCampuses.length < 2) {
 }
 ```
 
+### Looping with a `for` Loop
+A `for` loop is a way to repeat a block of code a set number of times.
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(hikes[i].name);
+}
+```
+
+- `let i = 0;` — Starts at `0` (initializes the counter).
+- `i < 5;` — The condition; as long as it is `true`, the loop will keep going.
+- `i++` — Increases `i` by `1` each time through the loop.
+
+### Random Numbers (`Math.random()`)
+`Math.random()` generates a random decimal number between `0` (inclusive) and `1` (exclusive). When combined with `Math.floor()` and multiplication, you can get random whole numbers.
+
+```javascript
+// Returns a random integer from 0 to 9:
+Math.floor(Math.random() * 10);
+```
+
 ### String Method: `.replace()`
 Searches a string for a specified substring/pattern and returns a **new string** with the replacement. It does not mutate the original string.
 
@@ -328,6 +352,16 @@ The `.trim()` method is a string method in JavaScript that removes whitespace fr
 
 ```javascript
 const cardNum = cardNumber.value.trim();
+```
+
+### String Method: `.includes()`
+Determines whether a certain value or substring exists within a string (or array), returning `true` or `false` as appropriate.
+
+```javascript
+const description = "Delicious warm apple crisp dessert";
+
+console.log(description.includes("apple")); // Output: true
+console.log(description.includes("pie"));   // Output: false
 ```
 
 ### Template Literals
@@ -403,7 +437,7 @@ function myFunction(item) {
 ```
 
 #### 2. `.map()`
-The `.map()` method creates a new array from calling a function for every array element.
+The `.map()` method works with an array, transforming each element in the array. It will create a new array based on the results from calling a function for every array element.
 
 ```javascript
 const numbers = [65, 44, 12, 4];
@@ -416,7 +450,7 @@ function myFunction(num) {
 ```
 
 #### 3. `.filter()`
-The `.filter()` method creates a new array filled with elements that pass a test provided by a function.
+The `.filter()` method works with an array. It will create a new array that only includes the array items that match a certain condition (pass a test provided by a function).
 
 ```javascript
 const ages = [32, 33, 16, 40];
@@ -464,7 +498,33 @@ const index = numbers.findIndex(function(num) {
 console.log(index); // Output: 2
 ```
 
-#### 7. `Array.from()`
+#### 7. `.find()`
+Searches an array and returns the first element that matches a condition (such as items that include a certain string).
+
+```javascript
+const recipes = [
+  { name: "Apple Crisp", tag: "dessert" },
+  { name: "Chicken Curry", tag: "entree" }
+];
+
+const found = recipes.find(recipe => recipe.name.includes("Apple"));
+console.log(found.name); // Output: "Apple Crisp"
+```
+
+#### 8. `.sort()`
+The `.sort()` method reorders the items in an array based on rules you define (using a compare function).
+
+```javascript
+const hikes = [
+  { name: "Teton Canyon", distance: 3 },
+  { name: " Bechler Falls", distance: 1 }
+];
+
+// Sort hikes in ascending order by distance
+hikes.sort((a, b) => a.distance - b.distance);
+```
+
+#### 9. `Array.from()`
 Converts an array-like object or collection (such as a `NodeList` returned by `querySelectorAll`) into a real JavaScript array.
 - Once converted, you can chain array methods like `.filter()`, `.map()`, and `.reduce()`.
 
