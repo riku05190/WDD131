@@ -113,6 +113,12 @@ img {
 }
 
 /* 3. Recipe Card (Flexbox - Mobile First) */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .recipe-card {
   display: flex;
   flex-direction: column;
