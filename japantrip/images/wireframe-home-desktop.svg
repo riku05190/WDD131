@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 540" width="760" height="540">
+  <rect width="760" height="540" fill="#f8f9fa" stroke="#333333" stroke-width="2" rx="12"/>
+  <!-- Header -->
+  <rect x="20" y="16" width="720" height="56" fill="#ffffff" stroke="#457b9d" stroke-width="2" rx="6"/>
+  <circle cx="50" cy="44" r="16" fill="#e63946"/>
+  <text x="76" y="49" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1d3557">JapanTrip Explorer</text>
+  <text x="530" y="49" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1d3557">Home (Explore)</text>
+  <text x="645" y="49" font-family="Arial, sans-serif" font-size="14" fill="#457b9d">Budget Planner</text>
+
+  <!-- Hero Banner -->
+  <rect x="20" y="84" width="720" height="100" fill="#dceefb" stroke="#457b9d" stroke-width="1.5" rx="6"/>
+  <text x="380" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1d3557">[Wide Hero Banner: Explore Iconic Destinations Across Japan]</text>
+  <text x="380" y="154" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#333333">Filter by region, category, or budget and build your custom itinerary</text>
+
+  <!-- Search & Filter Bar (Horizontal Flexbox) -->
+  <rect x="20" y="196" width="720" height="52" fill="#ffffff" stroke="#cccccc" stroke-width="1.5" rx="6"/>
+  <rect x="34" y="208" width="280" height="28" fill="#f8f9fa" stroke="#666666" stroke-width="1" rx="4"/>
+  <text x="46" y="226" font-family="Arial, sans-serif" font-size="12" fill="#555555">Search destinations, tags, descriptions...</text>
+  <rect x="328" y="208" width="120" height="28" fill="#1d3557" rx="4"/>
+  <text x="388" y="226" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Region: All ▾</text>
+  <rect x="460" y="208" width="120" height="28" fill="#e9ecef" stroke="#666666" rx="4"/>
+  <text x="520" y="226" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333333">Category: All ▾</text>
+  <rect x="592" y="208" width="134" height="28" fill="#e9ecef" stroke="#666666" rx="4"/>
+  <text x="659" y="226" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333333">Sort: Name A-Z ▾</text>
+
+  <!-- 3-Column Destination Grid -->
+  <!-- Card 1 -->
+  <rect x="20" y="262" width="228" height="206" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="6"/>
+  <rect x="32" y="274" width="204" height="90" fill="#e9ecef" stroke="#999999" stroke-dasharray="4" rx="4"/>
+  <text x="134" y="324" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#555555">[Image 1]</text>
+  <text x="32" y="384" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1d3557">Fushimi Inari Shrine</text>
+  <text x="32" y="404" font-family="Arial, sans-serif" font-size="11" fill="#333333">Kansai • Culture • ¥1,500</text>
+  <text x="32" y="422" font-family="Arial, sans-serif" font-size="11" fill="#333333">⭐⭐⭐⭐⭐ (5/5)</text>
+  <rect x="32" y="434" width="204" height="22" fill="#e63946" rx="4"/>
+  <text x="134" y="449" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Details / Add to Trip</text>
+
+  <!-- Card 2 -->
+  <rect x="266" y="262" width="228" height="206" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="6"/>
+  <rect x="278" y="274" width="204" height="90" fill="#e9ecef" stroke="#999999" stroke-dasharray="4" rx="4"/>
+  <text x="380" y="324" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#555555">[Image 2]</text>
+  <text x="278" y="384" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1d3557">Mount Fuji &amp; Kawaguchiko</text>
+  <text x="278" y="404" font-family="Arial, sans-serif" font-size="11" fill="#333333">Chubu • Nature • ¥4,000</text>
+  <text x="278" y="422" font-family="Arial, sans-serif" font-size="11" fill="#333333">⭐⭐⭐⭐⭐ (5/5)</text>
+  <rect x="278" y="434" width="204" height="22" fill="#e63946" rx="4"/>
+  <text x="380" y="449" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Details / Add to Trip</text>
+
+  <!-- Card 3 -->
+  <rect x="512" y="262" width="228" height="206" fill="#ffffff" stroke="#333333" stroke-width="1.5" rx="6"/>
+  <rect x="524" y="274" width="204" height="90" fill="#e9ecef" stroke="#999999" stroke-dasharray="4" rx="4"/>
+  <text x="626" y="324" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#555555">[Image 3]</text>
+  <text x="524" y="384" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1d3557">Dotonbori Street Food</text>
+  <text x="524" y="404" font-family="Arial, sans-serif" font-size="11" fill="#333333">Kansai • Food • ¥3,000</text>
+  <text x="524" y="422" font-family="Arial, sans-serif" font-size="11" fill="#333333">⭐⭐⭐⭐☆ (4/5)</text>
+  <rect x="524" y="434" width="204" height="22" fill="#e63946" rx="4"/>
+  <text x="626" y="449" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">Details / Add to Trip</text>
+
+  <!-- Footer -->
+  <rect x="20" y="482" width="720" height="42" fill="#1d3557" rx="6"/>
+  <text x="380" y="508" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#f1faee">Footer: © 2026 Riku Nakamura | JapanTrip Explorer | Social Links</text>
+</svg>

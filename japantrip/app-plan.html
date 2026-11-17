@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="description"
+    content="WDD 131 Final Project App Plan for JapanTrip Explorer by Riku Nakamura."
+  >
+  <meta name="author" content="Riku Nakamura">
+  <title>JapanTrip Explorer | Final Project App Plan</title>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="images/logo.svg"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="app-plan.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img
+        src="images/logo.svg"
+        alt="JapanTrip Explorer torii gate logo"
+        class="brand-logo"
+      >
+      <div>
+        <h1>JapanTrip Explorer — App Plan</h1>
+        <p class="subtitle">
+          WDD 131 Dynamic Web Fundamentals | Final Project Planning
+        </p>
+      </div>
+    </div>
+
+    <nav class="plan-nav" aria-label="App Plan Sections">
+      <ul>
+        <li><a href="#purpose">Purpose &amp; Audience</a></li>
+        <li><a href="#dynamic">Dynamic Elements</a></li>
+        <li><a href="#pseudocode">Pseudocode</a></li>
+        <li><a href="#style-guide">Style Guide</a></li>
+        <li><a href="#wireframes">Wireframes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <!-- 1. Purpose and Target Audience -->
+    <section id="purpose" class="plan-section">
+      <h2>1. Purpose and Target Audience</h2>
+
+      <h3>Site Name</h3>
+      <p>
+        <strong>JapanTrip Explorer</strong> (Folder: <code>japantrip</code>)
+      </p>
+
+      <h3>Purpose</h3>
+      <p>
+        The purpose of <strong>JapanTrip Explorer</strong> is to provide an
+        interactive, mobile-first web application that helps travelers
+        discover iconic destinations across Japan and build a realistic daily
+        trip itinerary with live budget estimation. Users can search, filter,
+        and sort curated destinations on the Home page
+        (<code>index.html</code>), inspect travel tips and admission costs in
+        an accessible modal dialog, and use the second page
+        (<code>planner.html</code>) to add stops to a custom schedule and
+        calculate total estimated expenses.
+      </p>
+
+      <h3>Target Audience</h3>
+      <ul>
+        <li>
+          <strong>Primary Audience:</strong> First-time international
+          travelers, college students, and study-abroad visitors aged 18–45
+          planning a self-guided trip to Japan.
+        </li>
+        <li>
+          <strong>User Needs:</strong> Quick access to organized destination
+          data by region (Kanto, Kansai, Chubu, Hokkaido) and category
+          (Culture, Nature, Food, City), clear cost estimates in Japanese Yen
+          (¥), and a lightweight itinerary budget calculator that works
+          seamlessly on smartphones while traveling.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 2. Description of Dynamic Elements -->
+    <section id="dynamic" class="plan-section">
+      <h2>2. Dynamic Elements (JavaScript Plan)</h2>
+      <p>
+        JavaScript will power both pages of the application using modular,
+        reusable functions, structured data objects, array methods, DOM
+        manipulation, event listeners, and conditional logic:
+      </p>
+
+      <h3>Data Structures (Objects &amp; Arrays)</h3>
+      <ul>
+        <li>
+          <strong><code>destinations</code> Array of Objects:</strong> Each
+          object stores <code>id</code>, <code>name</code>,
+          <code>region</code>, <code>category</code>, <code>tags</code>
+          (array of strings), <code>estimatedCost</code> (number),
+          <code>rating</code> (number 1–5), <code>image</code>,
+          <code>imageAlt</code>, <code>description</code>, and
+          <code>travelTip</code>.
+        </li>
+        <li>
+          <strong><code>itinerary</code> Array of Objects:</strong> Stores
+          user-selected trip stops (<code>id</code>, <code>name</code>,
+          <code>day</code>, <code>category</code>, <code>cost</code>) to
+          dynamically render and calculate the trip schedule.
+        </li>
+      </ul>
+
+      <h3>Array Methods Used</h3>
+      <ul>
+        <li>
+          <strong><code>.filter()</code> &amp; <code>.find()</code>:</strong>
+          Filter the <code>destinations</code> array by matching search
+          keywords against <code>name</code>, <code>description</code>, and
+          <code>tags</code>, as well as dropdown selections for
+          <code>region</code> and <code>category</code>.
+        </li>
+        <li>
+          <strong><code>.sort()</code>:</strong> Reorder filtered destinations
+          alphabetically by name (A–Z) or numerically by rating (high to low)
+          and estimated cost (low to high).
+        </li>
+        <li>
+          <strong><code>.map()</code> &amp; <code>.forEach()</code>:</strong>
+          Transform destination objects and tag lists into HTML template
+          literal strings and render each card into the DOM container.
+        </li>
+        <li>
+          <strong><code>.reduce()</code>:</strong> Calculate the total
+          estimated cost of all stops in the user's itinerary on the Planner
+          page (<code>itinerary.reduce((total, stop) =&gt; total + stop.cost, 0)</code>).
+        </li>
+      </ul>
+
+      <h3>DOM Manipulation, Events &amp; Conditional Branching</h3>
+      <ul>
+        <li>
+          <strong>DOM Selection &amp; Updates:</strong> Use
+          <code>document.querySelector()</code> and
+          <code>document.getElementById()</code> to update card grids, modal
+          content, budget counters, and ARIA attributes
+          (<code>aria-expanded</code>, <code>aria-live="polite"</code>).
+        </li>
+        <li>
+          <strong>Event Listeners:</strong> Listen for form
+          <code>submit</code> (using <code>e.preventDefault()</code>), search
+          <code>input</code>, filter/sort <code>change</code>, navigation
+          menu <code>click</code>, and card action button clicks.
+        </li>
+        <li>
+          <strong>Conditional Logic (<code>if / else</code>):</strong>
+          <ol>
+            <li>
+              Check if filtered search results are empty
+              (<code>filtered.length === 0</code>) to display a friendly
+              "No matching destinations found" message.
+            </li>
+            <li>
+              Compare total itinerary cost against the user's budget limit
+              (<code>if (totalCost &gt; budgetLimit)</code>) to toggle warning
+              styles and alert messages dynamically.
+            </li>
+            <li>
+              Validate form inputs (non-empty destination, valid day number
+              and positive budget) before adding a stop.
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 3. Pseudocode / Computational Thinking -->
+    <section id="pseudocode" class="plan-section">
+      <h2>3. Pseudocode &amp; Computational Thinking</h2>
+
+      <h3>Feature A: Destination Filtering, Sorting &amp; Rendering (Home Page)</h3>
+      <pre class="pseudocode-block"><code>1. DEFINE `destinations` array with 8+ objects.
+2. SELECT DOM elements:
+   - `gridContainer` (#destination-grid)
+   - `searchForm` (#filter-form)
+   - `searchInput` (#search-input)
+   - `regionSelect` (#region-select)
+   - `sortSelect` (#sort-select)
+   - `detailDialog` (#detail-dialog)
+
+3. FUNCTION tagTemplate(tags):
+   - MAP each `tag` in `tags` to `&lt;li&gt;${tag}&lt;/li&gt;` and JOIN("").
+
+4. FUNCTION ratingTemplate(rating):
+   - INITIALIZE `html` with `&lt;span role="img" aria-label="Rating: ${rating} out of 5 stars"&gt;`
+   - LOOP `i` from 1 to 5:
+     - IF `i &lt;= rating`, APPEND filled star span
+     - ELSE APPEND empty star span
+   - RETURN closed span HTML string.
+
+5. FUNCTION destinationCardTemplate(dest):
+   - RETURN `&lt;article class="dest-card"&gt;` containing image, region badge,
+     name, ratingTemplate(dest.rating), estimatedCost, tagTemplate(dest.tags),
+     and a "View Details" button with `data-id="${dest.id}"`.
+
+6. FUNCTION renderDestinations(list):
+   - CLEAR `gridContainer.innerHTML = ""`
+   - IF `list.length === 0`:
+     - SET `gridContainer.innerHTML` to no-results message and RETURN.
+   - FOREACH `item` in `list`:
+     - APPEND `destinationCardTemplate(item)` to `gridContainer`.
+
+7. FUNCTION filterAndSort(event):
+   - IF `event` exists, CALL `event.preventDefault()`
+   - READ `query` = `searchInput.value.trim().toLowerCase()`
+   - READ `region` = `regionSelect.value`
+   - READ `sortBy` = `sortSelect.value`
+   - FILTER `destinations` into `filtered`:
+     - `matchesQuery` = name, description, or tags.find() includes `query`
+     - `matchesRegion` = (region === "all") OR (dest.region === region)
+     - RETURN `matchesQuery &amp;&amp; matchesRegion`
+   - SORT `filtered`:
+     - IF `sortBy === "name"`, compare `a.name` vs `b.name`
+     - ELSE IF `sortBy === "cost-asc"`, return `a.estimatedCost - b.estimatedCost`
+     - ELSE IF `sortBy === "rating-desc"`, return `b.rating - a.rating`
+   - CALL `renderDestinations(filtered)`
+
+8. INITIALIZE page on load by calling `renderDestinations(destinations)`.</code></pre>
+
+      <h3>Feature B: Itinerary Builder &amp; Budget Calculator (Second Page)</h3>
+      <pre class="pseudocode-block"><code>1. INITIALIZE `itinerary` array with sample stops.
+2. SELECT DOM elements:
+   - `plannerForm` (#planner-form)
+   - `destSelect` (#dest-select)
+   - `dayInput` (#day-input)
+   - `budgetInput` (#budget-input)
+   - `itineraryList` (#itinerary-list)
+   - `totalCostEl` (#total-cost)
+   - `budgetStatusEl` (#budget-status)
+
+3. FUNCTION calculateBudgetSummary():
+   - USE `.reduce()` on `itinerary` to compute `totalCost`:
+     `const totalCost = itinerary.reduce((sum, stop) =&gt; sum + stop.cost, 0)`
+   - READ `budgetLimit` = Number(budgetInput.value) || 20000
+   - UPDATE `totalCostEl.textContent` with formatted Yen amount
+   - IF `totalCost &gt; budgetLimit`:
+     - SET `budgetStatusEl.textContent` = "Over Budget by ¥" + (totalCost - budgetLimit)
+     - ADD class "status-over" and REMOVE "status-ok"
+   - ELSE:
+     - SET `budgetStatusEl.textContent` =
+       "Within Budget (¥" + (budgetLimit - totalCost) + " remaining)"
+     - ADD class "status-ok" and REMOVE "status-over"
+
+4. FUNCTION handleAddStop(event):
+   - CALL `event.preventDefault()`
+   - FIND selected destination object in `destinations` using `.find()`
+   - VALIDATE inputs with `if / else`; if invalid, display error message and RETURN
+   - PUSH new stop object `{ id, name, day, category, cost }` into `itinerary`
+   - CALL `renderItinerary()` and `calculateBudgetSummary()`</code></pre>
+    </section>
+
+    <!-- 4. Style Guide (Colors & Typography) -->
+    <section id="style-guide" class="plan-section">
+      <h2>4. Style Guide (Colors &amp; Typography)</h2>
+      <p>
+        Colors are chosen to evoke traditional Japanese indigo
+        (<em>Ai-iro</em>) and vermilion (<em>Shu-iro</em>) while maintaining
+        WCAG AA/AAA contrast ratios for a 96+ Lighthouse Accessibility score.
+      </p>
+
+      <div class="color-palette">
+        <div class="swatch swatch-primary">
+          Primary: #1D3557 (Deep Indigo)
+        </div>
+        <div class="swatch swatch-secondary">
+          Secondary: #457B9D (Steel Blue)
+        </div>
+        <div class="swatch swatch-accent">
+          Accent: #C1121F (Torii Crimson)
+        </div>
+        <div class="swatch swatch-bg">
+          Background: #F8F9FA / Text: #1B263B
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>Heading Font:</strong> Montserrat (700 Bold / 600 SemiBold)
+          — clean geometric sans-serif for titles and cards.<br>
+          <strong>Body Font:</strong> Open Sans (400 Regular / 600 SemiBold)
+          — highly legible body copy across mobile and desktop screens.
+        </p>
+      </div>
+    </section>
+
+    <!-- 5. Wireframes -->
+    <section id="wireframes" class="plan-section">
+      <h2>5. Wireframes (Mobile &amp; Desktop Layouts)</h2>
+      <p>
+        Below are the mobile-first and desktop wireframes for both pages of
+        the <strong>JapanTrip Explorer</strong> web application.
+      </p>
+
+      <h3>Page 1: Home — Destination Explorer (<code>index.html</code>)</h3>
+      <div class="wireframe-grid">
+        <figure class="wireframe-card">
+          <img
+            src="images/wireframe-home-mobile.svg"
+            alt="Mobile wireframe for JapanTrip Explorer Home Page"
+            width="360"
+            height="680"
+          >
+          <figcaption>Home Page — Mobile View</figcaption>
+        </figure>
+
+        <figure class="wireframe-card">
+          <img
+            src="images/wireframe-home-desktop.svg"
+            alt="Desktop wireframe for JapanTrip Explorer Home Page"
+            width="760"
+            height="540"
+          >
+          <figcaption>Home Page — Desktop View</figcaption>
+        </figure>
+      </div>
+
+      <h3>Page 2: Trip &amp; Budget Planner (<code>planner.html</code>)</h3>
+      <div class="wireframe-grid">
+        <figure class="wireframe-card">
+          <img
+            src="images/wireframe-planner-mobile.svg"
+            alt="Mobile wireframe for Trip and Budget Planner Page"
+            width="360"
+            height="640"
+          >
+          <figcaption>Budget Planner Page — Mobile View</figcaption>
+        </figure>
+
+        <figure class="wireframe-card">
+          <img
+            src="images/wireframe-planner-desktop.svg"
+            alt="Desktop wireframe for Trip and Budget Planner Page"
+            width="760"
+            height="500"
+          >
+          <figcaption>Budget Planner Page — Desktop View</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      &copy; 2026 Riku Nakamura | WDD 131 Final Project App Plan |
+      Brigham Young University - Idaho
+    </p>
+  </footer>
+</body>
+</html>
